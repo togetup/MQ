@@ -16,7 +16,7 @@ public class ProducerServiceImpl implements ProducerService {
     @Autowired
     JmsTemplate jmsTemplate;
 
-    @Resource(name = "queueDestination")
+    @Resource(name = "topicDestination")
     Destination destination;
 
     public void sendMessage(final String message) {
@@ -28,6 +28,6 @@ public class ProducerServiceImpl implements ProducerService {
                 return textMessage;
             }
         });
-        System.out.println("发送队列消息-" + message);
+        System.out.println("发送消息-" + message);
     }
 }

@@ -12,7 +12,7 @@ public class AppProducer {
         ProducerService service = context.getBean(ProducerService.class);
 
         for (int i = 0; i < 100; i++) {
-            service.sendMessage("queueTest-" + i);
+            service.sendMessage("Test-" + i);
         }
 
         context.close();
