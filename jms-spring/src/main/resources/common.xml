@@ -11,7 +11,7 @@
     <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://127.0.0.1:61616" />
     </bean>
-    
+
     <!--Spring jms 提供的连接池-->
     <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
         <property name="targetConnectionFactory" ref="targetConnectionFactory" />
