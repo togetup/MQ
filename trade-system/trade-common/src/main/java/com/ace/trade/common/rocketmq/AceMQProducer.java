@@ -2,12 +2,10 @@ package com.ace.trade.common.rocketmq;
 
 import com.ace.trade.common.exception.AceMQException;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +59,7 @@ public class AceMQProducer {
             SendResult sendResult = this.producer.send(message);
             return sendResult;
         } catch (Exception e) {
-            LOGGER.error("send message error:", e.getMessage(), e);
+            LOGGER.error("send message error:[%s]", e.getMessage(), e);
             throw new AceMQException(e);
         }
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processor" class="TestProcessor" />
+
+    <bean id="aceMQConsumer" class="com.ace.trade.common.rocketmq.AceMQConsumer" init-method="init">
+        <property name="groupName" value="AceMQConsumerGroup" />
+        <property name="topic" value="TestTopic" />
+        <property name="namesrvAddr" value="127.0.0.1:9876" />
+        <property name="messageProcessor" ref="processor" />
+    </bean>
+</beans>
